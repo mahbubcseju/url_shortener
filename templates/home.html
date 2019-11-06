@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>My Project</title>
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    </head>
+
+    <body>
+    <div id ="divElement">
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>
+                <label for="id_given_url">URL:</label>
+                <input id="id_given_url" type="text" name="given_url" maxlength="200" required>
+                <input type="submit" value="go">
+            </p>
+
+        </form>
+    </div>
+    </body>
+</html>

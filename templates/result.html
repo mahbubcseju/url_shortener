@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shortened Url</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <div id="divElement">
+        <p>Given Url: {{url}}</p>
+        <p>Shortened Url: <a href={{value}}>{{value}}</a></p>
+    </div>
+</body>
+</html>
