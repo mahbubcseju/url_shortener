@@ -1,0 +1,15 @@
+server {
+        listen 8000;
+    server_name default;
+
+    location = /favicon.ico {access_log off; log_not_found off; }
+
+    location = /static/ {
+        root /home/ubuntu/projects/url_shortener;
+    }
+
+    location / {
+        include        /etc/nginx/uwsgi_params;
+        uwsgi_pass     unix:///home/ubuntu/projects/url_shortener.sock;
+    }
+}
