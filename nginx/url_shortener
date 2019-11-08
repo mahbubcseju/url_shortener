@@ -1,15 +1,21 @@
-server {
-        listen 8000;
-    server_name default;
+upstream url_shortener {
+    server 127.0.0.1:8000;
+}
 
+
+server {
+        listen 80;
+    server_name mahbubcseju.com ;
+    charset     utf-8;
     location = /favicon.ico {access_log off; log_not_found off; }
 
-    location = /static/ {
-        root /home/ubuntu/projects/url_shortener;
+    location  /static/ {
+        autoindex on;
+        alias  /home/ubuntu/projects/url_shortener/static/;
     }
 
     location / {
         include        /etc/nginx/uwsgi_params;
-        uwsgi_pass     unix:///home/ubuntu/projects/url_shortener.sock;
+        uwsgi_pass     url_shortener;
     }
 }
